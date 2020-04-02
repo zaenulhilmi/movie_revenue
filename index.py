@@ -22,7 +22,7 @@ def build_model():
     return model
 
 
-def norm(x):
+def normalize(x):
   return (x - train_stats['mean']) / train_stats['std']
 
 
@@ -39,8 +39,8 @@ train_stats.pop("revenue")
 train_stats = train_stats.transpose()
 
 
-normed_train_data = norm(train_dataset)
-normed_test_data = norm(test_dataset)
+normed_train_data = normalize(train_dataset)
+normed_test_data = normalize(test_dataset)
 
 train_labels = train_dataset.pop('revenue')
 test_labels = test_dataset.pop('revenue')
