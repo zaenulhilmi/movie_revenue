@@ -6,7 +6,7 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 
-
+#Building the regression model
 def build_model():
     model = keras.Sequential([
         layers.Dense(64, activation='relu', input_shape=[len(train_dataset.keys())]),
@@ -21,7 +21,7 @@ def build_model():
                   metrics=['mae', 'mse'])
     return model
 
-
+#Normalization is to change the values of numerics columns in the dataset to a common scale
 def normalize(x):
     return (x - train_stats['mean']) / train_stats['std']
 
